@@ -15,9 +15,16 @@ Gem::Specification.new do |gem|
 
   gem.homepage      = "https://github.com/csdn-dev/second_level_cache"
 
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  gem.files         = `git ls-files`.split("\n")
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  gem.executables   = []
+  gem.files         = Dir.glob("lib/**/*.rb") + [
+    "README.md",
+    "Rakefile",
+    "Gemfile",
+    "init.rb",
+    "CHANGELOG.md",
+    "second_level_cache.gemspec"
+  ]
+  gem.test_files    = Dir.glob("test/**/*.rb")
   gem.name          = "second_level_cache"
   gem.require_paths = ["lib"]
   gem.version       = SecondLevelCache::VERSION
