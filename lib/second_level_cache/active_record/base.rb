@@ -7,6 +7,7 @@ module SecondLevelCache
       included do
         after_destroy :expire_second_level_cache
         after_save :expire_second_level_cache
+        after_commit :expire_second_level_cache
 
         class << self
           alias_method_chain :update_counters, :cache
