@@ -30,9 +30,9 @@ module SecondLevelCache
         #return find_one_without_second_level_cache(id) unless select_all_column?
 
         id = id.id if ActiveRecord::Base === id
-        if ::ActiveRecord::IdentityMap.enabled? && cachable? && record = from_identity_map(id)
-          return record
-        end
+        #if ::ActiveRecord::IdentityMap.enabled? && cachable? && record = from_identity_map(id)
+        #  return record
+        #end
 
         if cachable?
           return record if record = @klass.read_second_level_cache(id)
